@@ -37,9 +37,11 @@ style_duo_accent(
   inverse_header_color = "#FFFFFF"
 )
 
-# Loaded packages
+# Loaded packages and libraries
+#------------------------------
+  if (!require("pacman")) install.packages("pacman")
+  pacman::p_load(knitr,styler,icons ,xaringanExtra,xaringan, tidyverse, kableExtra, countdown, janitor)
 
-install.load::install_load(c("knitr","styler","icons" ,"xaringanExtra", "xaringan", "tidyverse", "kableExtra", "countdown", "janitor"))
 
 xaringanExtra::use_xaringan_extra(include = c("tile_view", "editable", "share_again", "broadcast", "animate_css", "panelset", "tachyons", "fit_screen", "clipboard", "search", "scribble", "freezeframe"))
 
@@ -263,24 +265,22 @@ class: middle
 
 .w-100.lh-copy[
 There existing different tools and software to analyze the data
-* Python
-* R
-* STATA
-* SPSS
-* Julia
+* Python and R
+* STATA and SPSS
+* Julia and Matlab
 * Others
 ]
 
 --
 
 .w-100.lh-copy[
-Intentionally, in this training we be using learn and use R programming.
+Intentionally, in this training we are going to learn and use R programming as tool for Data Science.
 ]
 
 --
 
 .w-100.lh-copy[
-R is user-friendly and easy software tool to efficiently analyse any kind of data data
+R is user-friendly and easy tool to efficiently analyse any kind of data data
 ]
 
 --
@@ -293,12 +293,6 @@ R is a free and open-source software developed by __Ross Ihaka__ and __Robert Ge
 
 .w-100.lh-copy[
 R is designed to perform a very complex statistical analysis and display results using visual graphics and tables.
-]
-
---
-
-.w-100.lh-copy[
-The R programming is written in C, Fortran and R itself and allow the integration with Python,C,C++, and JavaScript.
 ]
 
 ---
@@ -322,14 +316,9 @@ class: middle
 
 .w-100.lh-copy[
 RStudio is an integrated development environment (IDE) for R
-programming. 
+programming. And it makes programming easier and friendly in R
 ]
 
---
-
-.w-100.1h-copy[
-R Studio makes programming easier and friendly in R.
-]
 
 ```{r, out.width= "85%", out.height="90%", echo=FALSE}
 knitr::include_graphics("images/R_studio.PNG")
@@ -522,7 +511,7 @@ remove.packages("pkg_name")
 ```
 ---
 
-## Use a function from an external package without loading it	
+### Use a function from an external package without loading it	
 
 
 .w-100.lh-copy[
