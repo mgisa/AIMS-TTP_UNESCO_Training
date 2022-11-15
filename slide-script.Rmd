@@ -51,13 +51,13 @@ use_webcam(width = 150, height = 150)
 use_extra_styles()
 ```
 
-background-image: url(images/aims.jpg), url(images/unesco.jpg)
-background-position: 50% 100%, 100% 0%
-background-size: 60%, 30%
+background-image: url(images/aims.jpg), url(images/unesco.jpg),url(images/mineduc.jpg)
+background-position: 50% 100%, 100% 0%, 0% 0%
+background-size: 50%, 25%,18% 
 
 class: title-page, center, middle
 
-# Training Workshop organized by AIMS-TTP and UNESCO Rwanda Commission.
+## Training Workshop organized by AIMS-TTP and UNESCO Rwanda Commission.
 
 ## Theme: Robotics, AI and Coding, 3D Printing and Micro-Science
 
@@ -109,6 +109,8 @@ Goal:
 > Coding section: Equip with trainees the new Software (R) for implementing some of AI applications (Predictive Machine Learning and Natural Language Processing (ChatBot). 
 
 > Installing, Testing and scripting in R through the packages ecosystems built-in R
+
+> Data flow Source to Production
 
 ]
 
@@ -166,7 +168,7 @@ class: middle
 
 Objectives:
 
-> Understand the world data revolution and explosion,
+> Understand the world data revolution, explosion and data flow,
 
 > Understand Big Data, tools and Techniques,
 
@@ -211,6 +213,27 @@ It will keep to increase and requires an extremely huge elastic cloud servers to
 
 .w-100.lh-copy[
 Therefore AI and Data Science is going to be a relevant tech to serve the world with such huge data.
+]
+
+---
+
+## Data Flow 
+
+.panelset[
+.panel[.panel-name[Static Flow]
+
+
+```{r, out.width= "70%", out.height="55%", echo=FALSE}
+knitr::include_graphics("images/Dsworkflow.jpg")
+```
+
+]
+.panel[.panel-name[Animation Flow]
+
+![HERE](https://drive.google.com/file/d/1us0yQ_CFv5xg2XArSim_H77Oq4exf1Im/view)
+
+
+]
 ]
 
 ---
@@ -993,3 +1016,4 @@ class: center, middle, inverse
 --
 
 **Thank you**
+
