@@ -6,7 +6,7 @@ output:
     css: xaringan-themer.css
     seal: false
     nature:
-      autoplay: 30000
+      autoplay: 60000
       countdown: 60000
       highlightStyle: github
       highlightLines: true
@@ -59,7 +59,7 @@ class: title-page, center, middle
 
 ## Training Workshop organized by AIMS-TTP and UNESCO Rwanda Commission.
 
-## Theme: Robotics, AI and Coding, 3D Printing and Micro-Science
+## Modules: Robotics, AI and Coding, 3D Printing and Micro-Science
 
 ### AI, Coding and Data Science Training Workflow 
 
@@ -230,8 +230,7 @@ knitr::include_graphics("images/Dsworkflow.jpg")
 ]
 .panel[.panel-name[Animation Flow]
 
-![HERE](https://drive.google.com/file/d/1us0yQ_CFv5xg2XArSim_H77Oq4exf1Im/view)
-
+[HERE](https://drive.google.com/file/d/1us0yQ_CFv5xg2XArSim_H77Oq4exf1Im/view)
 
 ]
 ]
@@ -632,7 +631,7 @@ The working directory is where R looks for files that you ask it to load, and wh
 
 RStudio shows your current working directory at the top of the console:
 
-```{r, echo=FALSE}
+```{r, out.width= "60%", out.height="5%", echo=FALSE}
 include_graphics("images/console.png")
 ```
 --
@@ -693,8 +692,8 @@ a wise and common practice.
 
 --
 
-```{r, echo=FALSE}
-include_graphics("images/rproj.png")
+```{r, out.width= "80%", out.height="25%", echo=FALSE}
+include_graphics("images/rproj.jpg")
 ```
 
 ---
@@ -703,7 +702,7 @@ include_graphics("images/rproj.png")
 
 Click `File → New Project`, then choose Existing Directory:
 
-```{r, echo=FALSE}
+```{r, out.width= "80%", out.height="25%", echo=FALSE}
 include_graphics("images/step1.PNG")
 ```
 
@@ -713,14 +712,14 @@ Browse for that specific directory (Folder).
 
 --
 
-```{r, echo=FALSE}
+```{r, out.width= "80%", out.height="40%", echo=FALSE}
 include_graphics("images/step2.png")
 ```
 
 ---
 class: middle
 
-```{r, echo=FALSE, out.height="100%", out.width="100%"}
+```{r, echo=FALSE, out.height="50%", out.width="80%"}
 include_graphics("images/step3.png")
 ```
 
@@ -732,9 +731,10 @@ Hurray! We are in the `RStudio project`.
 ---
 class: middle
 
-```{r, echo=FALSE}
-include_graphics("images/rproj.png")
+```{r, out.width= "80%", out.height="20%", echo=FALSE}
+include_graphics("images/rproj.jpg")
 ```
+
 Henceforth, you will click `.Rproj` to open RStudio project.
 
 
@@ -921,6 +921,16 @@ class: center, inverse, middle
 
 ```{r, out.width= "100%", out.height="100%", echo=FALSE}
 knitr::include_graphics("images/ML.jpg")
+```
+
+---
+
+class: center, inverse, middle
+
+## ML Protocol and lifecycle
+
+```{r, out.width= "70%", out.height="10%", echo=FALSE}
+knitr::include_graphics("images/lifecycleofML.jpg")
 ```
 
 ---
