@@ -1401,7 +1401,9 @@ class: clear, no_number, transition
 
 ```
 
-[Presentation Ninja](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+- [Presentation Ninja](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+
+- [Deployment of Slide Deck](https://rviews.rstudio.com/2021/11/18/deploying-xaringan-slides-a-ten-step-github-pages-workflow/)
 ---
 class: centre
 
