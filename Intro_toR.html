@@ -1,0 +1,1722 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Intro_toR.knit</title>
+    <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/animate.css/animate.xaringan.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"xbb2d63fd5634b7491ecf7f236e370aa","expires":14}</script>
+    <script src="libs/himalaya/himalaya.js"></script>
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <link href="libs/editable/editable.css" rel="stylesheet" />
+    <script src="libs/editable/editable.js"></script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/shareon/shareon.min.css" rel="stylesheet" />
+    <script src="libs/shareon/shareon.min.js"></script>
+    <link href="libs/xaringanExtra-shareagain/shareagain.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-shareagain/shareagain.js"></script>
+    <script src="libs/peerjs/peerjs.min.js"></script>
+    <script src="libs/tiny.toast/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast/broadcast.js"></script>
+    <script src="libs/mark.js/mark.min.js"></script>
+    <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-search/search.js"></script>
+    <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"bottom-left","caseSensitive":false,"showIcon":false,"autoSearch":true}) })</script>
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/freezeframe/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <script src="libs/xaringanExtra-webcam/webcam.js"></script>
+    <script id="xaringanExtra-webcam-options" type="application/json">{"width":"150","height":"150","margin":"1em"}</script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+
+
+background-image: url(images/Rcoder.jpg), url(images/consultancy.jpg),url(images/image-modified.png)
+background-position: 50% 100%, 100% 0%, 0% 0%
+background-size: 50%, 30%, 12% 
+
+class: title-page, center, middle
+
+## Training Workshop on R for Data Science.
+
+## Modules: Foundation of Data Worflow in R
+
+
+
+20 February, 2023
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 110px;
+height: 128px;
+z-index: 0;
+background-image: url(images/consultancy.jpg);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-page):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('a')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = 'https://mgisa.github.io/myblog'
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+---
+class: about-me-slide, inverse, middle, center
+
+## About Facilitator
+
+&lt;img style="border-radius: 80%;" src="images/Gisa.jpg" width="180px"/&gt;
+
+### Murera Gisa
+
+#### Data Scientist, ML Engineer
+
+.fade[National Bank of Rwanda (BNR), AIRA Analytics(Uganda) &lt;br&gt; Home-based Consultancy]
+
+[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"&gt;&lt;/path&gt;&lt;/svg&gt; @myblog](https://mgisa.github.io/myblog)
+[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt; @gisa_murera](https://twitter.com/gisa_murera)
+[&lt;svg viewBox="0 0 496 512" style="position:relative;display:inline-block;top:.1em;height:1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"&gt;&lt;/path&gt;&lt;/svg&gt; @mgisa](https://github.com/mgisa)
+[&lt;svg viewBox="0 0 512 512" style="position:relative;display:inline-block;top:.1em;height:1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"&gt;&lt;/path&gt;&lt;/svg&gt; 0788266517](https://github.com/mgisa)
+[&lt;svg viewBox="0 0 640 512" style="position:relative;display:inline-block;top:.1em;height:1em;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M519.2 127.9l-47.6-47.6A56.252 56.252 0 0 0 432 64H205.2c-14.8 0-29.1 5.9-39.6 16.3L118 127.9H0v255.7h64c17.6 0 31.8-14.2 31.9-31.7h9.1l84.6 76.4c30.9 25.1 73.8 25.7 105.6 3.8 12.5 10.8 26 15.9 41.1 15.9 18.2 0 35.3-7.4 48.8-24 22.1 8.7 48.2 2.6 64-16.8l26.2-32.3c5.6-6.9 9.1-14.8 10.9-23h57.9c.1 17.5 14.4 31.7 31.9 31.7h64V127.9H519.2zM48 351.6c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16c0 8.9-7.2 16-16 16zm390-6.9l-26.1 32.2c-2.8 3.4-7.8 4-11.3 1.2l-23.9-19.4-30 36.5c-6 7.3-15 4.8-18 2.4l-36.8-31.5-15.6 19.2c-13.9 17.1-39.2 19.7-55.3 6.6l-97.3-88H96V175.8h41.9l61.7-61.6c2-.8 3.7-1.5 5.7-2.3H262l-38.7 35.5c-29.4 26.9-31.1 72.3-4.4 101.3 14.8 16.2 61.2 41.2 101.5 4.4l8.2-7.5 108.2 87.8c3.4 2.8 3.9 7.9 1.2 11.3zm106-40.8h-69.2c-2.3-2.8-4.9-5.4-7.7-7.7l-102.7-83.4 12.5-11.4c6.5-6 7-16.1 1-22.6L367 167.1c-6-6.5-16.1-6.9-22.6-1l-55.2 50.6c-9.5 8.7-25.7 9.4-34.6 0-9.3-9.9-8.5-25.1 1.2-33.9l65.6-60.1c7.4-6.8 17-10.5 27-10.5l83.7-.2c2.1 0 4.1.8 5.5 2.3l61.7 61.6H544v128zm48 47.7c-8.8 0-16-7.2-16-16s7.2-16 16-16 16 7.2 16 16c0 8.9-7.2 16-16 16z"&gt;&lt;/path&gt;&lt;/svg&gt; elgisamur@gmail.com](https://mgisa.github.io/myblog)
+
+???
+
+class: about-me-slide, inverse, middle, center
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+About the Course:
+
+&gt; In this course we hope to demystify the idea that coding is difficult. We want to upskill all participants in order for them to understand how code used in basic data analysis.
+
+&gt; Coding section: Equip with trainees the new Software `R` for implementing some of data analytics worflow (from descriptive to the  Predictive). 
+Data flow Source to Production
+
+]
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+Goal:
+
+- Upskill all participants to understand code used in the data pipeline
+
+&gt; The training only aims to serve as a foundation for participants' R coding journey.
+
+- Familiarisation with data pipeline
+
+&gt; Upskill all participants to understand code used in the data pipeline
+
+
+
+]
+
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+Key outcomes:
+
+At the end of this training, participants will be able to:
+
+&gt; Have a basic understanding of the R code used in a data pipeline.
+
+&gt; Understand the flow of data analysis pipeline.
+
+&gt; Being able to do a basic exploratory analysis
+
+&gt; unleash the power of `Tidyverse` ecosystem. 
+
+&gt; Connect from DB and analyse data from R
+
+&gt; Take analysis to the next level through automation and presentation in R {xaringan} library.
+
+]
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+Asking assistance
+
+&gt; PLZ!!! Ask questions, we've been down this road before!
+
+&gt; Please feel free to stop me and ask a question.
+
+&gt; If you feel more comfortable asking questions in writing feel free to email them to `elgisamur@gmail.com`
+
+&gt; Help each other out! Some might be further along their data journeys than others.
+
+]
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+Summary:
+
+&gt; Have a basic understanding of the R code used in a data pipeline.
+
+&gt; Understand the flow of data analysis pipeline.
+
+&gt; Being able to do a basic exploratory analysis. 
+
+&gt; Visualize data using {ggplot2}.
+
+&gt; Create slides that automate reports.
+
+]
+
+
+---
+class: inverse, middle
+name: toc
+
+
+# Table of content
+
+.w-100.lh-copy[
+
+- [Day1: Setting of working environment and Introduction to R basics](#beg0)
+
+- [Day2: Data Cleaning, Visualization and Databases](#beg1)
+
+- [Day3: Automatic data report and presentation](#beg2)
+]
+
+---
+
+class: middle, center, inverse
+name: beg0
+
+# Introduction and R basics
+
+---
+
+
+
+---
+
+class: middle, center, inverse
+
+# Data, Tools and Techniques
+
+---
+
+class: middle
+
+.w-100.lh-copy[
+
+Objectives:
+
+&gt; Understand the world data revolution, explosion and data flow,
+
+&gt; Understand Big Data, tools and Techniques,
+
+&gt; Why open source? Migrate form EXCEL to R
+
+&gt; Navigate web browser, download and install R and Rstudio,
+
+&gt; Set a data analysis working directory and interactive project,
+
+&gt; Import data, clean it, aggregate and plot it,
+
+&gt; Learn how to use the grammar of graphics, literature programming, and Data tabulating (`tidyverse`).
+
+]
+
+---
+class: middle
+
+## World Data Explosion 
+
+.w-100.lh-copy[
+The world data comes in various ways,types, shapes, forms and sizes.
+]
+
+--
+
+.w-100.lh-copy[
+In `\(2020\)`, the world data was estimated at `\(45\)` Zettabytes ( `\(45\)` Millions GBs).
+]
+--
+
+.w-100.lh-copy[
+The amount of data generated daily is expected to reach `\(465\)` exabytes ( `\(465\)` Billions GBs) by `\(2025\)`.
+]
+
+--
+
+.w-100.lh-copy[
+
+It will keep to increase and requires an extremely huge elastic cloud servers to store and save them.
+]
+
+--
+
+.w-100.lh-copy[
+Therefore AI and Data Science is going to be a relevant tech to serve the world with such huge data.
+]
+
+---
+
+## Data Flow 
+
+.panelset[
+.panel[.panel-name[Static Flow]
+
+
+&lt;img src="images/Dsworkflow.jpg" width="70%" height="55%" /&gt;
+
+]
+.panel[.panel-name[Animation Flow]
+
+[HERE](https://drive.google.com/file/d/1us0yQ_CFv5xg2XArSim_H77Oq4exf1Im/view)
+
+]
+]
+
+---
+
+class: middle
+
+## Data Science
+
+.w-100.lh-copy[
+It is acknowledged that all sectors are bombarded by huge amount of data(__Big Data__).
+]
+
+--
+
+.w-100.lh-copy[
+That data means nothing till it will be analysed and interpreted to support policy making. 
+]
+
+--
+
+.w-100.lh-copy[
+This requires science, tools and techniques (Data Science) to deal with such big data to find:
+* hidden patterns, 
+* derive meaningful and insigthful information, and 
+* make business and policy decisions.
+  ]
+  
+--
+
+.w-100.lh-copy[
+The data scientist are at forefront of the latest tech revolution and find the hidden information from the big data.
+]
+
+--
+
+.w-100.lh-copy[
+* Example of data-driven projects: Chatbot, Sentiments and Emotions, Automatic data Reporting and dashboard,Robotics, MLOps, Etc...
+]
+
+---
+class: middle 
+
+## Data Science Skills
+
+&lt;img src="images/datascience.jpg" width="80%" height="70%" /&gt;
+---
+class: middle 
+
+## Why Open Source?
+
+- Open source software such as R has a very large and active communtity
+  - This means that the velocity of new package being made available is growing and an almost exponential rate
+- This also means that the access to the latest statistical techniques is available in R with extensive documentation
+- Specialized procedures is where the R community's strength lies
+- Besides the direct community of R developers, there are online forums which play a significant role in the development of the software as well as you as a user
+
+---
+class: middle
+
+- These forums give insight into practical solutions to problems and are easily accesible through the use of google:
+  - Go and explore [Stackoverflow](https://stackoverflow.com/)
+  - Dont be afraid to ask
+- Open source also allows for the construction of bespoke software to use in-house.
+- How to receive the latest information on what people are doing
+  - [R-Blogers](https://www.r-bloggers.com/)
+  
+---
+class: middle
+
+## Why move away from Excel?
+
+- Excel is a general point and click camera setup
+- Reliability is not its main focus; same can be said for reproducibility
+- Platform is unfortunately slow as it contains a lot of overhead
+- Excel has a very limited capacity and is memory intensive as it is reactive
+- Fundamental flaws:
+  - Solver gives the wrong result about 40% of the time
+  - Random number generation is not always random
+  - Documentation is sparse
+  
+---
+class: middle
+
+## Why R?
+
+- R is an Open Source
+- The capabilities of the program provides the necessary toolset for data analysis. The most obvious is the plotting features
+  - Histogram
+  - Boxplot
+  - Barchart
+  - LOESS smoothing of data
+---
+class: middle
+
+## Tools and Software
+
+.w-100.lh-copy[
+There existing different tools and software to analyze the data
+* Python and R
+* STATA and SPSS
+* Julia and Matlab
+* Others
+]
+
+--
+
+.w-100.lh-copy[
+Intentionally, in this training we are going to learn and use R programming as tool for Data Science.
+]
+
+---
+class: middle
+
+## What is R programming
+
+&lt;img src="images/RIhaka.png" width="80%" height="70%" /&gt;
+
+
+.w-100.lh-copy[
+R is designed to perform a very complex statistical analysis and display results using visual graphics and tables.
+]
+
+---
+class: middle
+
+## What is RStudio?
+
+.w-100.lh-copy[
+RStudio is an integrated development environment (IDE) for R
+programming. And it makes programming easier and friendly in R
+]
+
+&lt;img src="images/R_studio.PNG" width="85%" height="90%" /&gt;
+
+---
+class: middle
+
+## Installation and Testing
+
+* Download R [HERE](https://cran.r-project.org/bin/windows/base/)
+--
+
+* Download RStudio a.k.a Posit [HERE]( https://www.rstudio.com/products/rstudio/download/)
+--
+
+* Install both R and Rstudio by running the downloaded executable files from your PC Downloads folder.
+
+---
+class: middle
+
+## Useful terminology of workshop
+
+&lt;img src="images/tidyverse.jpg" width="85%" height="90%" /&gt;
+
+---
+class: middle, center, inverse
+name: beg2
+
+## R packages and library
+
+
+&lt;img src="images/packages.png" width="2667" /&gt;
+
+---
+
+layout: true
+
+## R packages and library
+
+---
+
+.w-100.lh-copy[
+A package is a collection of R functions that extends basic R functionality (`base::functions`).
+]
+
+--
+
+.w-100.lh-copy[
+A package can contain a set of functions relating to a specific topic or tasks.
+]
+
+--
+
+.w-100.lh-copy[
+For example, data wrangling packages include `tidyr`, `janitor`, etc.
+]
+
+--
+
+.w-100.lh-copy[
+The location where the packages are stored is called a **library**. If there is a particular package that you need, you can install the package from the Comprehensive R Archive Network (**CRAN**) by using:
+]
+--
+
+
+```r
+install.packages("pkg_name")
+```
+--
+
+For example:
+
+
+```r
+install.packages("tidyverse")
+```
+--
+.w-100.lh-copy[
+Please note that the package name must be put on double quotes (**" "**) or a single quote (**' '**).
+]
+
+---
+
+.w-100.lh-copy[
+Other packages that are not yet on `CRAN` can also be installed from an external repository such as **GitHub** or **GitLab** by using `devtools` or `remotes` packages.
+]
+
+--
+
+For example, package `fakir` is not yet on `CRAN`. 
+--
+ To install `fakir` from the `GitHub` repository,
+
+--
+use
+
+--
+
+
+```r
+devtools::install_github("ThinkR-open/fakir")
+```
+--
+
+or
+
+--
+
+```r
+remotes::install_github("ThinkR-open/fakir")
+```
+
+--
+
+.w-100.lh-copy[
+You can also use `devtools` or `remotes` to install development version of a package. 
+]
+
+--
+
+
+```r
+remotes::install_github("datalorax/equatiomatic")
+```
+
+---
+layout: false
+
+## Import or load a package
+
+.w-100.lh-copy[
+Before you can use any installed package, you will need to import or load them by using the command:
+]
+
+--
+
+
+```r
+library(pkg_name)
+```
+--
+
+.w-100.lh-copy[
+which makes that package functions available for you in the R session or environment.
+]
+
+--
+
+For example:
+
+--
+
+
+```r
+library(tidyverse)
+
+library(janitor)
+
+library(ralger)
+```
+
+---
+background-image: url(images/package.png)
+background-size: contain
+background-position: 60% 60%
+
+### Think of R package as this:
+
+.w-100.lh-copy[
+You only need to install a package once, but you need to reload it every time you start a new session.
+]
+---
+class: middle 
+
+## R Library
+
+.w-100.lh-copy[
+Library is a directory where the packages are stored. You can have multiple libraries on your hard disk.
+]
+
+--
+
+To see which libraries are available (which paths are searched for packages), use:
+
+--
+
+
+```r
+.libPaths()
+```
+
+```
+[1] "C:/Users/jmurera/AppData/Local/R/win-library/4.2"
+[2] "C:/Users/jmurera/R-4.2.2/library"                
+```
+---
+class: middle
+
+## Remove installed packages
+
+Remove installed packages/bundles and updates index information as
+necessary.
+
+
+```r
+remove.packages("pkg_name")
+```
+---
+
+### Use a function from an external package without loading it	
+
+
+.w-100.lh-copy[
+There are two ways to make use of a function in a package. You can
+load the package with `library(pkg_name)` and then use any of its `functions`. For example:
+
+
+
+```r
+library(install.load)
+
+install_load(c("tidyverse", "janitor", "ralger"))
+```
+
+]
+
+--
+
+.w-100.lh-copy[
+Or you can use the `::` operator to attach a function to a library i.e. `mypackage::myfunction()`. For example:
+
+
+
+```r
+install.load::install_load(c("tidyverse", "janitor", "ralger"))
+```
+
+]
+
+--
+
+.w-100.lh-copy[
+It is often common to see people using `mypackage::myfunction()` so that the reader of a script can know which function belongs to a particular package.
+]
+
+---
+class: middle
+
+### Example 1
+
+
+```r
+library(janitor)
+
+first_5_iris &lt;- head(iris, 5)
+
+clean_names(first_5_iris)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; sepal_length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sepal_width &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; petal_length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; petal_width &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+class: middle
+
+### Example 2
+
+
+```r
+first_5_iris &lt;- head(iris, 5)
+
+janitor::clean_names(first_5_iris)
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; sepal_length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; sepal_width &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; petal_length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; petal_width &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+class: middle, center, inverse
+name: beg3
+
+# RStudio project
+
+.w-100.lh-copy[
+Data Analysis Reproducibility with R and RStudio Project.
+]
+
+&lt;img src="images/reproduce.png" width="1277" /&gt;
+
+
+---
+layout: true
+
+## Where Does Your Analysis Live?
+
+---
+
+.w-100.lh-copy[
+The working directory is where R looks for files that you ask it to load, and where it will put any files that you ask it to save.
+]
+--
+
+RStudio shows your current working directory at the top of the console:
+
+&lt;img src="images/console.png" width="60%" height="5%" /&gt;
+--
+
+&lt;br&gt;
+
+and you can also print this out by using:
+
+--
+
+
+```r
+getwd()
+```
+
+```
+[1] "C:/Users/jmurera/Desktop/Downloads_docs/CONSULTANCY/MoE_PRES/UNESCO_TTP"
+```
+---
+class: middle
+
+.w-100.lh-copy[
+If you have specific directory that you want to use as your working
+directory, in `R` you can do that with the command `setwd()` e.g.
+`setwd("/path/to/my/data_analysis")`
+]
+--
+
+.w-100.lh-copy[
+or by using the keyboard shortcut  `Ctrl+Shift+H` and choose that
+specific directory (Folder).
+]
+
+---
+layout: false
+
+## Paths and Directories
+
+- .w-100.lh-copy[**Absolute paths**: This looks different in every computer. In Windows they start with a drive letter (e.g., `C:`). In my R working directory I have C:/Users/jmurera/Desktop/Downloads_docs/CONSULTANCY/MoE_PRES/UNESCO_TTP as absolute path.
+]
+--
+
+.w-100.lh-copy[
+You should never use *absolute paths* in your scripts, because they hinder sharing and no one else will have exactly the same directory configuration as you.
+]
+
+--
+
+- .w-100.lh-copy[**Relative paths**: With the help of function `here::here()` or `R project` or `getwd()`
+we can have a relative path like `data/datafile.csv` that
+allows for file sharing and collaboration.
+]
+
+---
+
+## RStudio Projects
+.w-100.lh-copy[
+For a typical data science workflow, you should use Rstudio project.
+R experts keep all the files associated with a project together—like data
+folder, R scripts folder, analytical results folder, figures folder. This is such
+a wise and common practice.
+]
+
+--
+
+&lt;img src="images/rproj.jpg" width="80%" height="25%" /&gt;
+
+---
+
+## Creating a new R project
+
+Click `File → New Project`, then choose Existing Directory:
+
+&lt;img src="images/step1.PNG" width="80%" height="25%" /&gt;
+
+---
+
+Browse for that specific directory (Folder).
+
+--
+
+&lt;img src="images/step2.png" width="80%" height="40%" /&gt;
+
+---
+class: middle
+
+&lt;img src="images/step3.png" width="80%" height="50%" /&gt;
+
+--
+
+Hurray! We are in the `RStudio project`.
+
+
+---
+class: middle
+
+&lt;img src="images/rproj.jpg" width="80%" height="20%" /&gt;
+
+Henceforth, you will click `.Rproj` to open RStudio project.
+
+
+---
+
+class: middle, center, inverse
+name: beg4
+
+# Reading and writing data in R
+
+&lt;img src="images/export.png" width="60%" height="50%" /&gt;
+---
+layout: true
+## Reading and writing data in R
+
+---
+.w-100.lh-copy[
+Creating a dataframe from scratch is so tedious. In the data science world, data will be available for you on a spreadsheet such as MS-Excel. Our job as a data scientist is to import those datasets into R using any data import packages such as `readr` (.csv), `readxl` (.xlsx), `haven` (.sav, .dta), `rio` (any data file format), or `ralger` (web data).
+]
+
+--
+.pull-left[
+
+&lt;img src="images/import.png" width="100%" height="100%" /&gt;
+]
+
+--
+
+.pull-right[
+
+.w-100.lh-copy[
+Please note that `readr`, `readxl`, and `haven` are part of `tidyverse` set of packages. You can see all the packages in the tidyverse by using:
+
+
+```r
+tidyverse::tidyverse_packages()
+```
+
+]
+]
+---
+
+- `readr` package:
+  - `read_csv()` import a `.csv` file to R 
+  
+  - `write_csv()` export a dataframe as `.csv` file out of R
+
+--
+
+- `readxl` package:
+
+  - `read_xlsx()` import a `.xlsx` file to R
+
+--
+
+- `writexl` package:
+  - `write_xlsx()` export a  dataframe as`.xlsx` file out of R 
+
+--
+
+- `haven` package:
+
+  - `read_sav()` import a `.sav` file to R
+
+  - `write_sav()` export a dataframe as `.sav` file out of R 
+  
+  - `read_dta()` import a `.dta` file to R
+
+  - `write_dta()` export a dataframe as `.dta` file out of R  
+  
+---
+
+- `rio` package
+  
+  - `import()` import any file format to R
+  
+  - `export()` export a dataframe as any file format out of R
+  
+For more information on `rio` package, please visit this [resource](https://www.rdocumentation.org/packages/rio/versions/0.5.26).
+
+--
+
+### RStudio Project
+
+.w-100.lh-copy[
+To import and export data in R, we will make use of the `RStudio project`, to automatically set up the working directory, and utilize the relative path for the data file path.
+]
+
+---
+layout: false
+
+### Lab session
+
+&lt;img src="images/lab.png" width="2320" /&gt;
+---
+layout: false
+class: middle
+
+## Summary
+
+.w-100.lh-copy[
+Data science workflow can be done in Rstudio project. This enables you to organize your files i.e. keep data files, the script, save the outputs and by using only relative path.
+]
+--
+
+.w-100.lh-copy[
+Everything you need is in one place, and cleanly separated from all other projects you are working on.
+]
+
+--
+
+.w-100.lh-copy[
+You can comfortably install any R packages be it on the `CRAN` or `GitHub` and load them to the R environment.
+]
+
+--
+
+.w-100.lh-copy[
+Now, you can import any file format to R and also export it out.
+]
+
+
+---
+class: center, middle, inverse
+name: beg5
+
+# Tidyverse Package Ecosystem
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+Objectives:
+
+&gt; What is a tidyverse, 
+
+&gt; tidyverse libraries,
+
+&gt; Hands on case studies
+
+]
+
+---
+class: center, middle
+
+### What is tidyverse
+
+.w-100.lh-copy[
+
+&gt; The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.
+
+]
+
+--
+
+.w-100.lh-copy[
+
+&gt; This collection contains some of the most used libaries that an `R` data scientist will use on a daily basis. The most used packages are probably `dplyr` and `ggplot`. Today we gonna explore the basics of the `dplyr` package.
+
+]
+---
+class: center, middle
+
+## Tidyverse CONT'D
+ 
+&gt; `dplyr` is the grammar of data manipulation (`select`, `filter`, `group_by`, `mutate`, `summarise`, `arrange`)
+
+&gt; ggplot is the grammar of graphics. 
+
+&gt; Beyong the scope of this workshop, below are some resources;
+
+  - [R for Data Science](https://r4ds.had.co.nz/)
+  - [ggplot](https://ggplot2-book.org/)
+  
+
+---
+class: center, inverse, middle
+
+## Recommendations
+
+&gt; We recommend `R` for data analyses due to its firm pedigree in statistical analysis. `Python` is getting better at manipulating data with packages like `pandas` and `alike`, while `R` has become a more general language over the last few years.
+
+&gt; Even though python does offer some nice integration features, `R` offers a much better ecosystem that supports reproducible research and data analysis (`Rmarkdown`, `blogdown`, `targets`, `distill` etc. ).
+
+---
+class: center, inverse, middle
+
+## Hands on case studies
+
+
+```
+  company cash_flow year
+1       A      1000    1
+2       A      4000    3
+3       A       550    4
+4       B      1500    1
+5       B      1100    2
+6       B       750    4
+7       B      6000    5
+```
+
+---
+class: center, middle
+
+## Present value of projected cash flows
+
+&gt; Time for analysis
+
+- If you expect a cash flow of `\(100\\)` $ to be received `\(1\)` year from now, what is the present value of that cash flow at a $ 5\% $ interest rate? 
+
+- To calculate this, you discount the cash flow to get it in terms of today's dollars. The general formula for this is:
+
+
+```r
+# present_value &lt;- cash_flow * (1 + interest / 100) ^ -year
+
+# 95.238 = 100 * (1.05) ^ -1
+```
+
+- If you expect to receive $4000 in 3 years, at a 5% interest rate, what is the present value of that money? Follow the general formula above and assign the result to present_value_4k.
+
+---
+class: middle
+
+
+```r
+# Present value of all cash flows
+cash$present_value &lt;- cash$cash_flow * (1.05)^-cash$year
+
+# Print out cash
+cash
+```
+
+```
+  company cash_flow year present_value
+1       A      1000    1      952.3810
+2       A      4000    3     3455.3504
+3       A       550    4      452.4864
+4       B      1500    1     1428.5714
+5       B      1100    2      997.7324
+6       B       750    4      617.0269
+7       B      6000    5     4701.1570
+```
+
+&gt; [dplyr Resource](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8) 
+
+---
+class: middle
+## Tidy your data
+
+&lt;img src="images/tidy.jpg" width="80%" height="50%" /&gt;
+
+[TidyR](https://posit.co/blog/introducing-tidyr/)
+
+---
+## Manipulation of data by tidyr
+
+&gt; pivot_longer()
+
+It is probably one of the most used functions when doing any analysis as most data come in 'human' readable format, while we want 'computer' readable data for data analysis. The arguments for the function is: `pivot_longer(names_to = ..., values_to = ...)`
+
+
+```r
+breed_traits %&gt;%
+  select(breed, where(is.numeric)) %&gt;%
+  pivot_longer(
+    names_to = "attribute",
+    values_to = "values",
+    -breed
+  ) %&gt;%
+  group_by(breed) %&gt;%
+  summarise(
+    avg_values = mean(values),
+    .groups = "drop"
+  ) %&gt;%
+  arrange(desc(avg_values))
+```
+
+---
+class: middle
+
+&gt; pivot_wider()
+
+It works just as pivot_longer did, but now it spreads the columns out in a wide format. I find I mostly use this when I am doing modeling exercises or outputting the values for team members in Excel to work with. `pivot_wider(names_from = ..., values_from = ...)`
+
+
+```r
+breed_traits %&gt;%
+  select(shedding_level, coat_type, coat_length) %&gt;%
+  group_by(coat_length, coat_type) %&gt;%
+  summarise(
+    avg_shedding = mean(shedding_level),
+    .groups = "drop"
+  ) %&gt;%
+  pivot_wider(
+    names_from = "coat_length",
+    values_from = "avg_shedding"
+  )
+```
+
+
+---
+class: middle
+
+# Exercise
+
+Use the `starwars` data set which has been loaded along with the tidyverse. Use tidyverse functions to (1) `select` all the columns from the first up to species; (2) use `pivot_longer()` and create a column that contains the attributes (hair, skin and eye) and a column that contains the color of the corresponding attribute and save it as `starwars_longer`; (3) use `pivot_wider()` to get the data frame back into its original wider format and save it as `starwars_wider`.
+---
+class: middle
+
+# Answer
+
+
+```r
+# pivot longer
+starwars_long &lt;- starwars %&gt;%
+  select(name:species) %&gt;%
+  pivot_longer(
+    contains("_color"),
+    names_to = "attribute",
+    values_to = "color"
+  )
+starwars_long
+# Return on original format
+starwars_wide &lt;- starwars_long %&gt;%
+  pivot_wider(
+    names_from = attribute,
+    values_from = color
+  )
+```
+
+---
+class: middle
+
+## Working on NAs in Dataframe
+
+- `drop_na()` drops all rows where there is a missing value
+- Replace missing values with next/previous value with `fill()`
+- Or a known value with `replace_na()`.
+---
+class: middle
+
+#Exercise
+
+
+```r
+library(palmerpenguins)
+data(package = "palmerpenguins")
+```
+
+&gt; Use the dataset above and answer the below questions
+
+- Check the number of NAs per variable
+- Use `replace_na()` to fill in the missing values of the numeric columns with the mean (tip, use within `mutate`)
+- Then use `fill()` to fill the values of body mass upwards
+- Lastly, drop all the rows that contain an NA with `drop_na()`
+- use `ggplot` to check the relationship between body mass and flipper length of all class of penguins accross all island.
+
+---
+class: center, middle, inverse
+
+## Day 2: Databases
+
+---
+
+class: middle
+
+.w-100.lh-copy[
+
+Objectives:
+
+&gt; Understand Databases,
+
+&gt; Connecting to DB via R,
+
+&gt; Perform some querries and analysis in R.
+
+]
+
+---
+
+class: center, middle
+
+### What is Database?
+
+.w-100.lh-copy[
+&gt; In computing, a database is an organized collection of data stored and accessed electronically.
+]
+
+--
+
+.w-100.lh-copy[
+&gt; Small databases can be stored on a file system, while large databases are hosted on computer clusters or cloud storage.
+]
+
+--
+
+.w-100.lh-copy[
+&gt; They exist different types of databases but in this workshop we will be using the Ralational Databases.
+]
+
+---
+class:center
+
+### Relational Databases
+
+&lt;img src="images/db.jpg" width="100%" height="100%" /&gt;
+
+.w-100.lh-copy[
+
+&gt;  In this database, every piece of information has a relationship with every other piece of information.
+]
+
+---
+class: center, inverse, middle
+
+## R and Database 
+
+&lt;img src="images/db1.png" width="50%" height="40%" /&gt;
+
+[DBI Resource](https://dbi.r-dbi.org/)
+
+---
+class: middle
+
+# Power of dbplyr and DBI
+
+&gt; `dbplyr` is the database backend for `dplyr`. It allows you to use remote database tables as if they are in-memory data frames by automatically converting dplyr code into SQL.
+
+The two main libraries we are going to use is: `dbplyr` and `DBI`
+
+
+```r
+library(dbplyr)
+library(DBI)
+con &lt;- dbConnect(RSQLite::SQLite(), ":memory:")
+copy_to(con, starwars)
+dbDisconnect(con)
+```
+
+---
+class: middle
+
+- ⚠️ `dbplyr` is very cool, but will limit your functionality when working in larger teams. Raw SQL is more powerful and easier to maintain.
+
+- 💀 Be careful to only use `dbplyr` for your data pipelines. The package is meant for Data Analysts and Data Scientist who don't do anything with the backend databases. So best used in large teams where roles are clearly defined and you only want to pull data from a database not interact with it in complex ways.
+
+- ⚠️ Call `dbDisconnect()` when finished working with a connection!
+
+---
+class: inverse, middle
+name: beg6
+
+# Working with simulated DB
+
+---
+class: center, middle, inverse
+
+Lets see if our connection worked:
+
+
+```r
+con &lt;- dbConnect(RSQLite::SQLite(), ":memory:")
+copy_to(con, breed_traits)
+breeds_db &lt;- tbl(con, "breed_traits")
+breeds_db
+```
+
+---
+class: middle
+
+&gt; All dplyr calls are evaluated lazily, generating SQL that is only sent to the database when you request the data!
+
+
+```r
+coat_summary &lt;- breeds_db %&gt;%
+  group_by(coat_length) %&gt;%
+  summarise(total_shedding = sum(shedding_level))
+coat_summary %&gt;%
+  show_query()
+
+coat_summary %&gt;%
+  collect()
+```
+
+---
+class: middle
+
+## The most common connectors
+
+&gt; MySQL
+
+
+```r
+RMySQL::MySQL()
+```
+
+&gt; PostgreSQL
+
+
+```r
+RPostgreSQL::PostgreSQL()
+```
+
+&gt; Oracle
+
+- ⚠️ Here be 🐲s!
+
+
+```r
+ROracle::Oracle()
+```
+
+---
+class: middle
+
+## Exercise
+
+- Connect to a database.
+- Load in Palmer penguins into the database (palmerpenguins::penguins).
+- Use the `tbl()` function to make a reference to penguins to ease access to the database.
+- Get the average body mass of penguins by sex and species.
+- What is the most observed species on every island?
+- Disconnect when finished using the connection.
+
+---
+class: center, middle, inverse
+
+## Day 3: Automating Report {xaringan}
+
+---
+class: middle
+
+.w-100.lh-copy[
+
+Objectives:
+
+&gt; What is `xaringan`?,
+
+&gt; Get started,
+
+&gt; Final Project and Presentation.
+
+]
+
+---
+class: large
+
+# Making Slide like a Ninja 🤺
+
+- With xaringan you can easily generate HTML5 presentations.
+- The `xaringan` package is an R Markdown extension based on the JavaScript library [remark.js](https://remarkjs.com/).
+- To learn more about `xaringan`, review the excellent `xaringan` introduction from the package's author [Yihui Xi](https://bookdown.org/yihui/rmarkdown/xaringan.html).
+---
+class: large
+
+- As you should know by now, its not very difficult to install packages in R
+
+```r
+install.packages("xaringan")
+```
+
+- Defining a new slide:
+
+
+```r
+---
+  class:.large
+# Installing {xaringan}
+```
+
+- Defining a specific type of slide:
+
+
+```r
+---
+class: clear, no_number, transition
+# Lets start
+```
+
+[Presentation Ninja](https://bookdown.org/yihui/rmarkdown/xaringan.html)
+
+---
+class: centre
+
+**Thank you**
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"highlightSpans": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "%current%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+setInterval(function() {slideshow.gotoNextSlide();}, 60000);
+(function(time) {
+  var d2 = function(number) {
+    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
+  },
+
+  time_format = function(total) {
+    var secs = Math.abs(total) / 1000;
+    var h = Math.floor(secs / 3600);
+    var m = Math.floor(secs % 3600 / 60);
+    var s = Math.round(secs % 60);
+    var res = d2(m) + ':' + d2(s);
+    if (h > 0) res = h + ':' + res;
+    return res;  // [hh:]mm:ss
+  },
+
+  slide_number_div = function(i) {
+    return document.getElementsByClassName('remark-slide-number').item(i);
+  },
+
+  current_page_number = function(i) {
+    return slide_number_div(i).firstChild.textContent;  // text "i / N"
+  };
+
+  var timer = document.createElement('span'); timer.id = 'slide-time-left';
+  var time_left = time, k = slideshow.getCurrentSlideIndex(),
+      last_page_number = current_page_number(k);
+
+  setInterval(function() {
+    time_left = time_left - 1000;
+    timer.innerHTML = ' ' + time_format(time_left);
+    if (time_left < 0) timer.style.color = 'red';
+  }, 1000);
+
+  slide_number_div(k).appendChild(timer);
+
+  slideshow.on('showSlide', function(slide) {
+    var i = slide.getSlideIndex(), n = current_page_number(i);
+    // reset timer when a new slide is shown and the page number is changed
+    if (last_page_number !== n) {
+      time_left = time; last_page_number = n;
+      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
+    }
+    slide_number_div(i).appendChild(timer);
+  });
+})(60000);
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
